@@ -8,11 +8,13 @@ import scala.util.Random
 
 class Minesweeper(val width: Int, val height: Int, val numberOfMines: Int) {
 
+  var dead: Boolean = false
   var mines: mutable.ArraySeq[Boolean] = null
   var displayStrings: mutable.ArraySeq[String] = null
   this.init()
 
   def init(): Unit = {
+    this.dead = false
     val numberOfSpots: Int = this.width * this.height
     this.mines = Array.fill(numberOfSpots)(false)
     this.displayStrings = Array.fill(numberOfSpots)("x")
@@ -54,30 +56,22 @@ class Minesweeper(val width: Int, val height: Int, val numberOfMines: Int) {
 
   def howManyNeighbors(x: Int, y: Int): Int = {
     neighbors(new Point(x,y)).count((p: Point) => this.mines(locationToIndex(p.x, p.y)))
-
-//    val neighbors: List[Int] = List(
-//      locationToIndex(x + 1, y),
-//      locationToIndex(x - 1, y),
-//      locationToIndex(x, y + 1),
-//      locationToIndex(x, y - 1),
-//      locationToIndex(x + 1, y + 1),
-//      locationToIndex(x - 1, y + 1),
-//      locationToIndex(x + 1, y - 1),
-//      locationToIndex(x - 1, y - 1)
-//    ).filterNot(_ == -1)
-//1
-//    neighbors.count(this.mines(_))
   }
 
   def buttonPressed(x: Int, y: Int): Unit = {
-    val index: Int = locationToIndex(x, y)
-    if (this.mines(index)) {
-      this.displayStrings(index) = "*"
-    } else {
-      val numberOfNeighboringMines: Int = howManyNeighbors(x, y)
-      this.displayStrings(index) = if (numberOfNeighboringMines == 0) "" else numberOfNeighboringMines.toString
-      if (numberOfNeighboringMines == 0){
-        neighbors(new Point(x,y)).foreach((p: Point)=> if(this.displayStrings(locationToIndex(p.x, p.y)) == "x") buttonPressed(p.x, p.y))
+    if(this.dead){
+      this.init()
+    }else {
+      val index: Int = locationToIndex(x, y)
+      if (this.mines(index)) {
+        this.displayStrings(index) = "*"
+        this.dead = true
+      } else {
+        val numberOfNeighboringMines: Int = howManyNeighbors(x, y)
+        this.displayStrings(index) = if (numberOfNeighboringMines == 0) " " else numberOfNeighboringMines.toString
+        if (numberOfNeighboringMines == 0) {
+          neighbors(new Point(x, y)).foreach((p: Point) => if (this.displayStrings(locationToIndex(p.x, p.y)) == "x") buttonPressed(p.x, p.y))
+        }
       }
     }
   }

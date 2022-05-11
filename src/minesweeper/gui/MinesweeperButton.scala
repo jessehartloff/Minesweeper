@@ -7,6 +7,6 @@ class MinesweeperButton(val x: Int, val y: Int, val game: Minesweeper) extends B
   this.maxHeight = 20
   this.maxWidth = 20
   this.text = "error"
-  this.style = "-fx-font: 12 ariel"
+  this.style = "-fx-font: 12 consolas"
   this.onAction = new ButtonListener(this)
 }
