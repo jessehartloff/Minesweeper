@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <groupId>edu.buffalo.cse</groupId>
+    <artifactId>cse116-minesweeper</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <url>http://maven.apache.org</url>
+    <version>0.0.1</version>
+    <properties>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!--  https://mvnrepository.com/artifact/org.openjfx/javafx-base  -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/org.openjfx/javafx-controls  -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/org.openjfx/javafx-fxml  -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/org.openjfx/javafx-graphics  -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/org.openjfx/javafx-media  -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/org.scalafx/scalafx  -->
+        <dependency>
+            <groupId>org.scalafx</groupId>
+            <artifactId>scalafx_2.13</artifactId>
+            <version>15.0.1-R21</version>
+        </dependency>
+        <!--  https://mvnrepository.com/artifact/org.scalatest/scalatest  -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.13</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+    </dependencies>
+</project>
