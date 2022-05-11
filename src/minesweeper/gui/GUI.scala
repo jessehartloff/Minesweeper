@@ -9,7 +9,7 @@ import scalafx.scene.layout.GridPane
 
 object GUI extends JFXApp {
 
-  val game: Minesweeper = new Minesweeper(20, 10, 50)
+  val game: Minesweeper = new Minesweeper(20, 10, 5)
 
   var buttons: List[MinesweeperButton] = List()
   for (j <- 0 until game.height) {
