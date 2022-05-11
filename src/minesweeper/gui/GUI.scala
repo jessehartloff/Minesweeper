@@ -18,7 +18,7 @@ object GUI extends JFXApp {
   }
 
   this.stage = new PrimaryStage {
-    this.title = "Minesweeper change"
+    this.title = "Minesweeper"
     this.scene = new Scene(){
       this.content = List(
         new GridPane {
